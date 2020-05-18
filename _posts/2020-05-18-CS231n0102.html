@@ -12,10 +12,14 @@ background: '/img/posts/01.jpg'
 
 <p></p>
 <p></p>
+<p></p>
+<p></p>
 <p> Primary visual cortex of a cat brain research: Inspire computer vision</p>
 <p> Computer vision studies how animals perceive objects visually.</p>
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82224015-575e6100-995e-11ea-8718-a90dd3e1f1b7.png" alt="Demo Image">
 
+<p></p>
+<p></p>
 <p></p>
 <p></p>
 <p> How computers accept visual world:</p>
@@ -25,9 +29,13 @@ background: '/img/posts/01.jpg'
 
 <p></p>
 <p></p>
+<p></p>
+<p></p>
 <p> If object recognition is too difficult, split it up into meaningful area --> “Object Segmentation”</p>
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82224021-57f6f780-995e-11ea-82b5-856a43c9235c.png" alt="Demo Image">
 
+<p></p>
+<p></p>
 <p></p>
 <p></p>
 <p> SIFT feature: Match feature point </p>
@@ -37,16 +45,22 @@ background: '/img/posts/01.jpg'
 
 <p></p>
 <p></p>
+<p></p>
+<p></p>
 <p> Spatial Pyramid Matching: </p>
 <p> Each image has a hint of what kind of scenery it is --> Gather features and put it in feature descriptor --> Run support vector machine algorithm</p>
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82224028-59282480-995e-11ea-9652-fd292f8e8d00.png" alt="Demo Image">
 
 <p></p>
 <p></p>
+<p></p>
+<p></p>
 <p> As time goes by, more data is created and image quality is improved. And this suits the needs of studying the vision of the computer. </p>
 <p> Since the 2000s, PASCAL visual Object challenge opened. </p>
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82224035-5a595180-995e-11ea-92de-72f61e38f034.png" alt="Demo Image">
 
+<p></p>
+<p></p>
 <p></p>
 <p></p>
 <p> Cause we can get huge dataset through Imagenet, make object recognition into another phase </p>
@@ -56,9 +70,13 @@ background: '/img/posts/01.jpg'
 
 <p></p>
 <p></p>
+<p></p>
+<p></p>
 <p> CNN's Progress: Getting deeper and deeper, It become an important tool for object recognition.  </p>
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82224039-5c231500-995e-11ea-8073-4abedb467328.PNG" alt="Demo Image">
 
+<p></p>
+<p></p>
 <p></p>
 <p></p>
 <p> Why Deep Learning become popular? </p>
@@ -68,11 +86,15 @@ background: '/img/posts/01.jpg'
 
 <p></p>
 <p></p>
+<p></p>
+<p></p>
 <p>  How do image classification works?  </p>
 <p>  --> System receives some input image and assign it to particular category labels. </p>
 <p> When we moved the camera, then every single pixel would become different. But, it's still representing the same cat. And our algorithms need to be robust to this. </p>
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82224044-5cbbab80-995e-11ea-8126-f5a30cb63671.PNG" alt="Demo Image">
 
+<p></p>
+<p></p>
 <p></p>
 <p></p>
 <p> < A problematic situation >  </p>
@@ -83,6 +105,8 @@ background: '/img/posts/01.jpg'
 
 <p></p>
 <p></p>
+<p></p>
+<p></p>
 <p> Once we get this dataset, we train this machine learning classifier. Finally, we'll use this training model and classify it on new images.  </p>
 <p> Now we have two function in this process. </p>
 <p> 1. Train: Input images and labels and then output a model. The model will memorize all of the training data.  </p>
@@ -91,10 +115,14 @@ background: '/img/posts/01.jpg'
 
 <p></p>
 <p></p>
+<p></p>
+<p></p>
 <p> CIFAR-10 dataset gives 10 different classes And it provides 50,000 training images, and also 10,000 additional testing images.  </p>
 <p> Here's an example of classifier of these test images on CIFAR-10 on the right. You can see the most similar training images sorted to each of these test image.  </p>
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82224051-5decd880-995e-11ea-9a53-df206b4f86a3.png" alt="Demo Image">
 
+<p></p>
+<p></p>
 <p></p>
 <p></p>
 <p> How to figure out the difference between two images: --> Manhattan distance.  </p>
@@ -104,15 +132,21 @@ background: '/img/posts/01.jpg'
 
 <p></p>
 <p></p>
+<p></p>
+<p></p>
 <p> An code of an nearest neighbor classifier.</p>
 <p> In the train method, it just memorize the training data.  </p>
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82223967-50375300-995e-11ea-899a-f591e80ccaef.png" alt="Demo Image">
 
 <p></p>
 <p></p>
+<p></p>
+<p></p>
 <p> And in the predict method, it will go on a comparing using L1 distance function.   </p>
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82223969-50cfe980-995e-11ea-8b60-920478dcee4f.png" alt="Demo Image">
 
+<p></p>
+<p></p>
 <p></p>
 <p></p>
 <p> How fast the training and testing be?  </p>
@@ -123,12 +157,16 @@ background: '/img/posts/01.jpg'
 
 <p></p>
 <p></p>
+<p></p>
+<p></p>
 <p> < k-nearest neighbors >   </p>
 <p>  --> Generalization algorithm </p>
 <p> K's role indicates how close the data will be to be combined.  </p>
 <p> “The larger the k, the more effective it is to smoothe out the boundary.”  </p>
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82223974-51688000-995e-11ea-8ad8-92b9875b9630.PNG" alt="Demo Image">
 
+<p></p>
+<p></p>
 <p></p>
 <p></p>
 <p> <Euclidean distance>  </p>
@@ -139,13 +177,17 @@ background: '/img/posts/01.jpg'
 
 <p></p>
 <p></p>
-<p> * hyperparameter : a  parameter whose value is set before the learning process begins  </p>
+<p></p>
+<p></p>
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82223984-53324380-995e-11ea-89f9-7aaeabc6c888.png" alt="Demo Image">
+<p> * hyperparameter : a  parameter whose value is set before the learning process begins  </p>
 <p></p>
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82223989-53324380-995e-11ea-83c2-e9a54dc9e0e3.png" alt="Demo Image">
 <p></p>
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82223990-53cada00-995e-11ea-8658-50834c21e0dd.png" alt="Demo Image">
 
+<p></p>
+<p></p>
 <p></p>
 <p></p>
 <p> Problem with the k-nearest neighbor classifier : The curse of dimensionality. K   </p>
@@ -155,9 +197,13 @@ background: '/img/posts/01.jpg'
 
 <p></p>
 <p></p>
+<p></p>
+<p></p>
 <p>  Deep Neural Networks are like Legos and this linear classifier is the basic building blocks of these giant networks. </p>
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82223998-54637080-995e-11ea-8d03-c8a9f1e99819.png" alt="Demo Image">
 
+<p></p>
+<p></p>
 <p></p>
 <p></p>
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82227279-85de3b00-9962-11ea-9bdb-9fcc1a88d0f6.png" alt="Demo Image">
@@ -167,9 +213,13 @@ background: '/img/posts/01.jpg'
 
 <p></p>
 <p></p>
+<p></p>
+<p></p>
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82224001-54fc0700-995e-11ea-9c2f-d77375b4ac79.png" alt="Demo Image">
 <p> *bias: This could gives us data independent preferences for some classes over another.  </p>
 
+<p></p>
+<p></p>
 <p></p>
 <p></p>
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82224006-55949d80-995e-11ea-8ec1-c6d83b929795.png" alt="Demo Image">
@@ -179,9 +229,13 @@ background: '/img/posts/01.jpg'
 
 <p></p>
 <p></p>
+<p></p>
+<p></p>
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82224010-562d3400-995e-11ea-86cd-928e2eda1658.png" alt="Demo Image">
 <p> If we consider each of our images as a point in 2d, the linear classifier will draw a line. And it separates between one category and the rest of them. </p>
 
+<p></p>
+<p></p>
 <p></p>
 <p></p>
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82224011-56c5ca80-995e-11ea-9dd0-af316f26be6a.png" alt="Demo Image">
