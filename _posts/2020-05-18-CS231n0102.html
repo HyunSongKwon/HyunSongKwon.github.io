@@ -60,55 +60,77 @@ background: '/img/posts/01.jpg'
 
 
 <img class="img-fluid" src="" alt="Demo Image">
-<p>   </p>
-<p>   </p>
-
-
-<img class="img-fluid" src="" alt="Demo Image">
-<p>   </p>
-<p>   </p>
+<p> Once we get this dataset, we train this machine learning classifier. Finally, we'll use this training model and classify it on new images.  </p>
+<p> Now we have two function in this process. </p>
+<p> 1. Train: Input images and labels and then output a model. The model will memorize all of the training data.  </p>
+<p> 2. Predict: Which will input the model and than make predictions for new images.  </p>
 
 <img class="img-fluid" src="" alt="Demo Image">
-<p>   </p>
-<p>   </p>
+<p> CIFAR-10 dataset gives 10 different classes And it provides 50,000 training images, and also 10,000 additional testing images.  </p>
+<p> Here's an example of classifier of these test images on CIFAR-10 on the right. You can see the most similar training images sorted to each of these test image.  </p>
 
 <img class="img-fluid" src="" alt="Demo Image">
-<p>   </p>
-<p>   </p>
+<p> How to figure out the difference between two images: --> Manhattan distance.  </p>
+<p> First, subtract the pixel value of the training image from the pixel value of the test image and take the absolute value.  </p>
+<p> And then, sum all these differences.   </p>
 
 <img class="img-fluid" src="" alt="Demo Image">
-<p>   </p>
-<p>   </p>
+<p> An code of an nearest neighbor classifier.</p>
+<p> In the train method, it just memorize the training data.  </p>
 
 <img class="img-fluid" src="" alt="Demo Image">
-<p>   </p>
-<p>   </p>
+<p> And in the predict method, it will go on a comparing using L1 distance function.   </p>
 
 <img class="img-fluid" src="" alt="Demo Image">
-<p>   </p>
-<p>   </p>
+<p> How fast the training and testing be?  </p>
+<p> Training :constant --> We just have to memorize the data.  </p>
+<p> Predict : N --> We will compare our test image to each of the N training examples in the dataset.    </p>
+<p> What we really want is the testing time performance to be fast.   </p>
 
 <img class="img-fluid" src="" alt="Demo Image">
-<p>   </p>
-<p>   </p>
+<p> < k-nearest neighbors >   </p>
+<p>  --> Generalization algorithm </p>
+<p> K's role indicates how close the data will be to be combined.  </p>
+<p> “The larger the k, the more effective it is to smoothe out the boundary.”  </p>
 
 <img class="img-fluid" src="" alt="Demo Image">
-<p>   </p>
-<p>   </p>
+<p> <Euclidean distance>  </p>
+<p> Where you take the square root of the sum of the squares and take this as your distance.  </p>
+<p> If you were to rotate the coordinate frame that would change the L1 distance between the points. But L2 distance doesn't matter.  </p>
+<p> If input features have some important meaning,L1 might be a more natural fit. But if you don't know what they actually mean, then maybe L2 is more natural.	  </p>
 
 <img class="img-fluid" src="" alt="Demo Image">
-<p>   </p>
-<p>   </p>
+<p> * hyperparameter : a  parameter whose value is set before the learning process begins  </p>
 
 <img class="img-fluid" src="" alt="Demo Image">
-<p>   </p>
-<p>   </p>
 
+<img class="img-fluid" src="" alt="Demo Image">
 
+<img class="img-fluid" src="" alt="Demo Image">
+<p> Problem with the k-nearest neighbor classifier : The curse of dimensionality. K   </p>
+<p> --> In high dimensions, the number of training examples have to densely cover the space .  </p>
+<p> “Grows exponentially with the dimension”  </p>
 
+<img class="img-fluid" src="" alt="Demo Image">
+<p>  Deep Neural Networks are like Legos and this linear classifier is the basic building blocks of these giant networks. </p>
 
-<p>   </p>
-<p>   </p>
-<p>   </p>
-<p>   </p>
-<p>   </p>
+<img class="img-fluid" src="" alt="Demo Image">
+<p> Parametric model has two different components.  </p>
+<p> X:input data,  W: weights </p>
+<p> It will spit out 10 numbers describing what corresponding to each of those 10classes in CIFAR-10.  </p>
+
+<img class="img-fluid" src="" alt="Demo Image">
+<p> *bias: This could gives us data independent preferences for some classes over another.  </p>
+
+<img class="img-fluid" src="" alt="Demo Image">
+<p> <Interpreting a Linear Classifier>  </p>
+<p> Take the rows of that weight matrix and unravel them back into images   </p>
+<p> --> Templates as images gives us what a linear classifier might actually be doing to try to understand the data. </p>
+
+<img class="img-fluid" src="" alt="Demo Image">
+<p> If we consider each of our images as a point in 2d, the linear classifier will draw a line. And it separates between one category and the rest of them. </p>
+
+<img class="img-fluid" src="" alt="Demo Image">
+<p> A problems that linear classification have:  </p>
+<p> We can draw a single linear line to separate blue and red.	 However, as you can see in the picture, in some cases is hard to separate.  </p>
+
