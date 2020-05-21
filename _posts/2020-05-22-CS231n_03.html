@@ -8,10 +8,12 @@ background: '/img/posts/01.jpg'
 
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608653-0bc5e480-9bf6-11ea-9c9f-4848e67798b4.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<p>To determine which W will be best, we need to quantify how bad W is, and we call this a loss function.
+Training data set has xs and ys, and xs are pixel values of images, which will be the inputs to the algorithm in the image classification case. And the ys are the targets.
+ The case of image classification, it will categorize each image for CIFAR-10. So the label y will be an integer between one and 10 or between zero and nine.
+The predicted scores coming out of the function f, will give quantitative value for how bad predictions are.
+And the final loss L will be the average of these losses summed over the entire data set.
+Eventually finding the W that minimizes the loss on your training data will be a goal.</p>
 <br>
 <br>
 <br>
@@ -20,10 +22,11 @@ background: '/img/posts/01.jpg'
 
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608654-0c5e7b00-9bf6-11ea-983b-c27fb94dd7ec.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<p> To get L_i, we're going to sum over all the incorrect categories. 
+And compare the score of the correct category, and the score of the incorrect category.
+If the score for the correct category is greater than the score of the incorrect category. 
+That means that the true score is larger than the false categories, and we'll get a zero of loss value.
+And if we sum up all of the incorrect categories of our image, that will be the final Loss of one image.</p>
 <br>
 <br>
 <br>
@@ -32,10 +35,9 @@ background: '/img/posts/01.jpg'
 
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608655-0cf71180-9bf6-11ea-9d48-eb3e24ac7f8d.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<p>What we really care is that the correct score is greater than the incorrect scores.
+The multiclass SVM loss will be the sum of the losses of these of classes, which will be 2.9 plus zero.
+And 2.9 is a quantitative measure of how much our classifier work well in this training example. </p>
 <br>
 <br>
 <br>
@@ -44,10 +46,8 @@ background: '/img/posts/01.jpg'
 
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608658-0cf71180-9bf6-11ea-9995-6b6427f77dcf.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<p> Final loss for the entire data set is the average of these three losses. 
+And this is quantitative measure that our classifier is 5.27 bad on this data set.</p>
 <br>
 <br>
 <br>
@@ -55,10 +55,9 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608661-0d8fa800-9bf6-11ea-8aed-aa7d2ee1c492.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<p>So the first question was what happens to loss if car scores change a bit? 
+then the loss will be same.In this case, the car score is larger than the others.
+So if the scores for car class changed a little bit, the loss will be still zero. </p>
 <br>
 <br>
 <br>
@@ -67,10 +66,10 @@ background: '/img/posts/01.jpg'
 
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608663-0e283e80-9bf6-11ea-818b-07d56feba773.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<p> The next question was what's is the min and max possible loss?
+If correct score was much larger, then we'll get zero.
+And if the correct score is very negative, then we could get infinite loss.
+So the min is zero and the max is infinity.</p>
 <br>
 <br>
 <br>
@@ -78,10 +77,11 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608664-0e283e80-9bf6-11ea-99c4-3437e9e9d1af.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<p> At initialization W is small, so if all s is zero, than what is the loss?
+If we're looping over all of the C minus one classes, with small W, each of the two S will be the same, so we'll get one.
+And the loss will be the number of classes minus one.
+And we could use this for debugging.
+For example, when you start off training, and if the first iteration is not equal to C minus one, this means there probably have bug.</p>
 <br>
 <br>
 <br>
@@ -89,10 +89,10 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608665-0ec0d500-9bf6-11ea-893e-8afdf07f166c.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<p> Then what if the sum was over all classes?
+Then the loss will increase one.
+Because of conventions, we originally omit the correct class.
+And if loss is zero, this means that you're not losing at all.</p>
 <br>
 <br>
 <br>
@@ -100,10 +100,10 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608617-04064000-9bf6-11ea-91fb-9c0275e4d6a0.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<p>The last question was what if we used mean instead of sum?
+The answer is it doesn't change.
+Mean is just rescaling the whole loss function.
+And we don't actually care about the true values </p>
 <br>
 <br>
 <br>
@@ -111,10 +111,10 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608620-05376d00-9bf6-11ea-8936-460d56257fe4.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<p>What if we use equation below for lossnfunction?
+We would have different result.
+Because this would compute a different loss function.
+And the loss function is the way that you tell your algorithm what types of errors. </p>
 <br>
 <br>
 <br>
@@ -122,10 +122,16 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608622-05d00380-9bf6-11ea-8939-8986ab76c627.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<p>Classifier should find the W that fits the training data.
+But actually it doesn’t matter how much it fits the training data,
+What we really care about is the performance of this classifier on test data.
+Suppose we have this data set of blue points, and if we're going to fit blue points, it might have wiggly curves to perfectly classify all of the training data points.
+But this is not good, cause what we care about is, the performance on the test data.
+So we probably prefer the classifier to predict this straight green line, rather than blue wiggly line
+And the way to solve it, What we need is regularization.
+So we're going to add an additional term to the loss function called a regularization.
+Which encourages the model to choose a simpler W,
+Because it will be better in generalizing to new observations in the future if we have simpler W. </p>
 <br>
 <br>
 <br>
@@ -133,10 +139,9 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608625-06689a00-9bf6-11ea-8776-bd55a3432686.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<p>There's a lot of different types of regularization that used in practice.
+The most common one is L2 regularization or weight decay.
+And the whole idea of regularization is giving sort of penalizes to the model, rather than fitting perfectly the training data. </p>
 <br>
 <br>
 <br>
@@ -144,10 +149,10 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608627-07013080-9bf6-11ea-868e-5b32a1b631dd.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<p>Here we have some training example, x, and two different Ws.
+And we will take dot products between x and W.
+L2 regression would prefer W2 because it prefers to spread influence in x.
+And that means it has a smaller norm. </p>
 <br>
 <br>
 <br>
@@ -155,10 +160,13 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608630-0799c700-9bf6-11ea-8d2c-8cab0078554a.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<p>Multinomial logistic regression is popular in deep learning through softmax function.
+There is probabilities over our classes, where each probability is between zero and one.
+What we consider the most, is the probability of the true class is high and is it close to one. 
+Mathematically, we would use log. 
+Because it's easier to maximize log than it is to maximize the raw probability.
+Loss functions measure badness, so we need to put minus to make negative log of the probability of the true class.
+To sum up, when we take our scores, we run through the softmax, and loss will be minus log of the probability of the true class. </p>
 <br>
 <br>
 <br>
@@ -166,10 +174,10 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608631-0799c700-9bf6-11ea-865c-c09d5b3ed5c0.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<p>First, take all of them exponentiate to make them all positive.
+ And then we'll normalize them to make that they all sum to one. 
+And loss will be the minus log of the true class score.
+ And that is the softmax loss, which also called multinomial logistic regression. </p>
 <br>
 <br>
 <br>
@@ -177,10 +185,11 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608632-08325d80-9bf6-11ea-8466-bf0013f89abb.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<p>Now Let’s compare two loss functions.
+For SVM, it will look at the margins between the scores of the correct class and of the incorrect class. And this will get this data point over the bar and then just give up.
+In cross-entropy loss, It will compute a probability distribution and then look at the minus log probability of the correct class.
+And softmax will always try to improve every single data point to get better and better </p>
+<br>
 <br>
 <br>
 <br>
@@ -188,21 +197,16 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608633-08325d80-9bf6-11ea-8e09-8c2d1dfd250a.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
-<br>
+<p>Trying to find the W that minimizes this final loss function would leads us to the topic of optimization. 
+Let’s pretend you're a guy who is walking around valley, and you're trying to find the bottom of this valley. 
+From this point of view, the height of each of these points would mean loss. </p>
 <br>
 <br>
 <br>
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608635-08caf400-9bf6-11ea-8082-2e64b8714ada.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<p> Then slope could be the derivative of this function. And the gradient is a vector of partial derivatives. Gradient will tell us what is the slope of the function f, if we move in that coordinate direction. For example in negative gradient direction, it gives you the direction of decrease of the function.</p>
 <br>
 <br>
 <br>
@@ -210,10 +214,8 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608637-09638a80-9bf6-11ea-9da2-ad0c119731df.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<p>Final goal is to compute the gradient, Dw.
+And each slot in that gradient will tell us how much will the loss change, if we move a tiny amount in that coordinate direction. </p>
 <br>
 <br>
 <br>
@@ -221,10 +223,8 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608639-09638a80-9bf6-11ea-8234-d0c7fad51452.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<p>But we can just use the magical hammer of calculus to write down an expression for what this gradient should be. And this'll be more efficient than trying to compute it analytically.
+Also it'll be much faster since we just need to compute this single expression. So In practice, you'll always use an analytic gradient </p>
 <br>
 <br>
 <br>
@@ -232,10 +232,12 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608641-09fc2100-9bf6-11ea-9170-976a8e909228.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<p>Here is some simple code of Gradient Descent.
+First we initialize our W random thing.
+Then while true, it'll compute loss and gradient and then update weights in the opposite of the gradient direction. The gradient is pointing in the direction of greatest increase of the function. So minus gradient points in the direction of greatest decrease.
+So let’s take a small step in the direction of minus gradient, and repeat this forever and finally network will converge. 
+Step size tells us that every time we compute the gradient, how far do we step in that direction.
+And this also called a learning rate, is one of the most important hyper-parameters when you're actually training in practice.</p>
 <br>
 <br>
 <br>
@@ -243,10 +245,10 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608651-0bc5e480-9bf6-11ea-9b5c-7bda5877822d.png" alt="Demo Image">
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
+<p>In practice, we use stochastic gradient descent.
+It samples small set of training examples, called a minibatch. 
+And use this small minibatch, to compute an estimate of the full sum and the true gradient. 
+Now we can sample random minibatch of data.After that evaluate loss and gradient on the minibatch, and make an update on weights based on this estimate of the loss and gradient.</p>
 <br>
 <br>
 <br>
