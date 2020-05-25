@@ -8,7 +8,11 @@ background: '/img/posts/01.jpg'
 
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845755-b0129880-9f20-11ea-9826-e8255c469532.png" alt="Demo Image">
-<p></p>
+<p>To compute gradient for complex functions, we use computational graphs. 
+once expressing a function using a computational graph,
+ then we can use backpropagation which is progressing recursively.
+Using the chain rule you can compute the gradient in every variable in the computational graph.
+</p>
 <br>
 <br>
 <br>
@@ -16,23 +20,26 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845756-b0ab2f00-9f20-11ea-898e-10e327d3f7be.png" alt="Demo Image">
-<p></p>
+<p>Let’s see simple example of backpropagation.
+Now we have function f of x, y, z.
+The first step what we have to do is representing function f, using a computational graph.
+Because backprop is a recursive application of the chain rule,
+so we're going to start at the end of the computational graph, and then we're going to work backwards and compute all the gradients along the way.
+And this means if we change y a little bit, the effect of y on q is going to be the local gradient dq over dy.
+</p>
 <br>
 <br>
 <br>
 <br>
 <br>
 
-<img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82608653-0bc5e480-9bf6-11ea-9c9f-4848e67798b4.png" alt="Demo Image">
-<p></p>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845757-b0ab2f00-9f20-11ea-8fd6-5cce61e8d879.png" alt="Demo Image">
-<p></p>
+<p>In short, let me explain again about how does backpropagation work.
+Backprop starts from the back of the graph.
+And all the way back to the beginning each node has the upstream gradients coming back and immediate output of the node.
+Using the chain rule, we take upstream gradient coming down and multiply with local gradient in order to get the gradient of the input.
+</p>
 <br>
 <br>
 <br>
@@ -40,7 +47,14 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845758-b143c580-9f20-11ea-9a12-580d897292a4.png" alt="Demo Image">
-<p></p>
+<p>As taking these gradients going backwards we can think add gate as ‘gradient distributor’ and max gate as ‘gradient router’.
+Add gate passed back the same gradient to both branches coming in, 
+the max gate will just take the gradient and pass it to one of the branches while the other one will have gradient of zero.
+Also we can think of multiplication gate as a gradient switcher.
+Because we take this upstream gradient and scale it by the other branch’s value.
+When you change node a little bit, it will affect both of connected nodes in the forward pass.
+And this also means when you're doing backprop, both of these gradients coming back will affect this node too.
+</p>
 <br>
 <br>
 <br>
@@ -48,7 +62,13 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845759-b1dc5c00-9f20-11ea-88e0-4b03b4216e28.png" alt="Demo Image">
-<p></p>
+<p>So what you see here is the gradients of each node. 
+The equation may seem complicated, but if you know how to differential, you can easily get the results.
+And what we really want to find in this example is how each element of q affects f.
+The gradient of a vector is always the same size as the original vector,
+and each element of this gradient means how much this particular element affects final output of the function.
+Additionally, the important thing to check in practice is whether the gradient with respect to a variable has the same shape as the variable. 
+</p>
 <br>
 <br>
 <br>
@@ -56,7 +76,11 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845761-b1dc5c00-9f20-11ea-9a44-447fa20a612b.png" alt="Demo Image">
-<p></p>
+<p>As you can see in the screen, you can think forward and a backwards as API.
+In forward pass it is important to cache the values.
+Cause we will also use this in the backward pass.
+And in the backward pass by using the chain rule, we're going to take the upstream gradient and scale it by the value of the other branch.
+</p>
 <br>
 <br>
 <br>
@@ -64,7 +88,13 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845730-a8eb8a80-9f20-11ea-960d-7577b306f7dc.png" alt="Demo Image">
-<p></p>
+<p>Now Let’s see what Neural network is.
+Here we have a matrix multiply of W-one with x,
+and we also have non-linear function which max is output of this linear layer.
+So we have first linear layer and then have this non-linearity.
+And then on top of this we'll add another linear layer.
+We stack them in a hierarchical way in order to make more complex non-linear function. And we can call this 2-layer Neural Network.
+</p>
 <br>
 <br>
 <br>
@@ -72,7 +102,13 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845732-aa1cb780-9f20-11ea-84b9-3f6b5f06eaf0.png" alt="Demo Image">
-<p></p>
+<p>This is a diagram of a neuron.
+we have a lot of neurons connected together and each neuron has dendrites, which receives the impulses that come into the neuron. 
+After that a cell body integrates all these signals which coming in and passes to connected downstream neurons.
+Now if we look at each computational node, you can see that they are similar.
+Where nodes are connected to each other in the computational graph, and inputs are combined and integrated all together with weights, and after that an activation function will pass it down to the connecting neurons.
+Activation functions usually takes all the inputs and output one number. And a ReLU function is the most similar to the way that neurons actually behave.
+</p>
 <br>
 <br>
 <br>
@@ -80,7 +116,13 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845735-aab54e00-9f20-11ea-80a2-ce069a388a49.png" alt="Demo Image">
-<p></p>
+<p>what gave rise to convolutional neural networks?
+In the 1950s there was series of experiments trying to understand how neurons in the visual cortex worked, through cats.
+Different kinds of edges and different sorts of shapes are measured through the response of the neurons to these stimuli.
+Based on this result, the first thing they found out is that, there's sort of topographical mapping in the cortex.
+And they also discovered that these neurons had a hierarchical organization.
+Through this results, they start to get the idea of corners and blobs and so on.
+</p>
 <br>
 <br>
 <br>
@@ -88,7 +130,11 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845737-ab4de480-9f20-11ea-9ef5-38a44c07bd52.png" alt="Demo Image">
-<p></p>
+<p>Nowdays, ConvNets are used everywhere.
+For example, they can be used for detection. And they sure do a really good job of localizing
+where in an image is, and draw bounding boxes around that.
+Also it is used in segmentation too. where not just looking for the bounding box but also labeling every pixel in the outline of object.
+</p>
 <br>
 <br>
 <br>
@@ -96,7 +142,12 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845740-abe67b00-9f20-11ea-8495-c9ed3241def3.png" alt="Demo Image">
-<p></p>
+<p>As you can see in this picture we have a 3D image which is 32 by 32 by three.
+First stretch all of the pixels out to 3072 dimensional vector.
+And then multiply this with weight matrix. we do this through dot product with 3072 dimensional input, then we're going to get the activation which is 10 of these neuron outputs.
+So the main difference between a convolutional layer and the fully connected layer
+Is that fully connected layer can preserve spatial structure.
+</p>
 <br>
 <br>
 <br>
@@ -104,7 +155,12 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845741-abe67b00-9f20-11ea-9e57-0ee85499d28b.png" alt="Demo Image">
-<p></p>
+<p>Let’s see how convolution Layer works.
+We have this 32 by 32 by three image and weights will be these small filters.
+And we're going to slide this filter on the image spatially.
+Filters always extend the full depth of the input volume. So they will overlay this filter on top of a spatial location in the image, and then multiply of each element of filter with corresponding element.
+To sum up again, slide the filter over the image spatially, compute dot products of the spatial locations in the image, and finally you will get activation map.
+</p>
 <br>
 <br>
 <br>
@@ -112,7 +168,10 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845743-ac7f1180-9f20-11ea-813f-a646582d2d06.png" alt="Demo Image">
-<p></p>
+<p>We usually work with set of multiple filters while dealing with a convolutional layer.
+Because each filter can get a specific type of template or concept in the input image. 
+For example if we have six filters, then could get different six activation maps out.
+</p>
 <br>
 <br>
 <br>
@@ -120,7 +179,10 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845744-ac7f1180-9f20-11ea-915b-0436978eca9f.png" alt="Demo Image">
-<p></p>
+<p>Then how can we use these convolutional layers?
+In our convolutional network, ConvNet is a sequence of convolutional layers stacked with top of each other.
+And we're going to intersperse activation functions like a ReLU activation function.
+</p>
 <br>
 <br>
 <br>
@@ -128,7 +190,11 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845745-ad17a800-9f20-11ea-9185-4e4ed84c8969.png" alt="Demo Image">
-<p></p>
+<p>Each of these layers have multiple filters. And each of the filter is producing an activation map. When multiple layers stack together, you can see each filter learning hierarchically
+when the filters at the earlier layers, represent low-level features, like edges.
+And at the mid-level, you will get more complex features, like corners and blobs and so on.
+Finally at higher-level, you're going to get things that are more resemble concepts than blobs.
+</p>
 <br>
 <br>
 <br>
@@ -136,7 +202,11 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845748-adb03e80-9f20-11ea-8142-ab8b1e1559ee.png" alt="Demo Image">
-<p></p>
+<p>Let’s see what our total convolutional neural network is doing.
+First they will get input image, and then pass it through to this sequence of layers. Where we have a convolutional layer first and then non-linear layer after that. 
+Now we have these Conv, ReLU, Conv, ReLU layers, and once in a while we'll also use a pooling layer. which down samples the size of our activation maps.
+And then finally at the end of this, we'll take last convolutional layer output. Where we use fully connected layer. which is connected to all of these convolutional outputs, and get a final score function.
+</p>
 <br>
 <br>
 <br>
@@ -144,7 +214,15 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845749-adb03e80-9f20-11ea-93f1-969df97e8e10.png" alt="Demo Image">
-<p></p>
+<p>Now let’s see how the spatial dimensions work out.
+As you can see in this example, we have a seven by seven input, and three by three filter.
+Starting with upper left corner, we're going do the dot product to get our first value. 
+And slide it every single spatial location.
+Stride is the interval when sliding.
+For example, if we have a stride of two. we're going to skip two pixels over.
+And this can be a formula of input N, filter size F and stride.
+When we're sliding along the spatial dimension, output size is going to be N minus F divided by the stride plus one.
+</p>
 <br>
 <br>
 <br>
@@ -152,7 +230,10 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845750-ae48d500-9f20-11ea-9cf8-5f3728593c1c.png" alt="Demo Image">
-<p></p>
+<p>In practice it's common to zero pad the borders in order to make the size we want.
+And also you're will be able to place a filter centered at the, upper right location of input image.
+In summary, padding can help to maintain or make the size of the output which you want, and  make filter able to apply corner regions and edge regions too.
+</p>
 <br>
 <br>
 <br>
@@ -160,7 +241,10 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845751-ae48d500-9f20-11ea-9a57-137e0aad4dad.png" alt="Demo Image">
-<p></p>
+<p>When we have multiple layers stacked together,
+you'll see that if you don't do any kind of padding, it will quickly shrink the size of the outputs.
+And this is bad because we're losing some of this information.
+</p>
 <br>
 <br>
 <br>
@@ -168,7 +252,11 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845752-aee16b80-9f20-11ea-9525-227d9f24be02.png" alt="Demo Image">
-<p></p>
+<p>If we take a dot product between a filter and a specific part of the image we will get one number out from here.
+The main point of this slide is that CONV Layer has local connectivity.
+Instead of being connected to the entire input, CONV Layer just look at a local region of image.
+And you also will know how much this neuron is being triggered at every spatial location in your image.
+</p>
 <br>
 <br>
 <br>
@@ -176,7 +264,10 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845753-af7a0200-9f20-11ea-98d6-14062052073d.png" alt="Demo Image">
-<p></p>
+<p>Then what will happen when we have several filters which volume are 5 by 5?
+In this case, we will get 3D grid which is 28 by 28 by five. 
+And this means, different filters applied to the same spatial location in the image, will get several different neurons.
+</p>
 <br>
 <br>
 <br>
@@ -184,7 +275,10 @@ background: '/img/posts/01.jpg'
 <br>
 
 <img class="img-fluid" src="https://user-images.githubusercontent.com/44043931/82845754-b0129880-9f20-11ea-8c7e-767e645f834b.png" alt="Demo Image">
-<p></p>
+<p>Lastly, I will tell you about pooling. which down samples the input.
+And it's important to know that pooling doesn't do anything in the depth.
+And usually max pooling is frequently used.
+</p>
 <br>
 <br>
 <br>
