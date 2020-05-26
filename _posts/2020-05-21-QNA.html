@@ -1,0 +1,51 @@
+---
+layout: post
+title: "QNA"
+subtitle: "QNA"
+date: 2020-05-21 23:45:13 -0400
+background: '/img/posts/01.jpg'
+---
+
+<p>1x1 convolution</p>
+<p>filter with a size of 1x1, Similar to fc(fully connected layer)</p>
+<img class="img-fluid" src="" alt="Demo Image">
+
+<p>Advantages</p>
+<p>1. Adjusting and maintaining channels: Nonlinearity can be added to the neural network to reduce or maintain the number of channels in the volume</p>
+<img class="img-fluid" src="" alt="Demo Image">
+<br>
+<br>
+
+<p>2.Reduce of computational cost: 1x1 convolution layer(The bottleneck layer) can be used to solve the calculation cost problem</p>
+<img class="img-fluid" src="" alt="Demo Image">
+<img class="img-fluid" src="" alt="Demo Image">
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<p>Localization</p>
+<img class="img-fluid" src="" alt="Demo Image">
+<p>Localization: Recognize one object and measure its position</p>
+<p>Detection: Recognize all object in the image and measure its position (Multiple Objects Exist)</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<p>Sliding Window</p>
+<p>As one of the Object Detection, This refers to the method of calculating the score by sliding the window of various scales from top left to bottom right of the image. However, Scores must be calculated multiple times from one image, making them inefficient in terms of speed.</p>
+<img class="img-fluid" src="" alt="Demo Image">
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<p>Yolo</p>
+<img class="img-fluid" src="" alt="Demo Image">
+<p>An effective real-time object recognition algorithm (similar to classification and localization algorithms).</p>
+<p>It split our image into cells, and Each cell is responsible for predicting several bounding boxes. (Fine grids may reduce the probability of multiple objects being assigned to the same grid cell)</p>
+<p>Implementing a unit of convolution, it is very efficient algorithms. (Very fast for real-time)</p>
